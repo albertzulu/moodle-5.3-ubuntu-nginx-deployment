@@ -14,7 +14,7 @@ sudo systemctl enable --now php8.3-fpm
 ### Configure PHP
 
 Edit `/etc/php/8.3/fpm/php.ini` and apply values suitable for your workload:
-
+```bash
 sudo nano /etc/php/8.3/fpm/php.ini
 ```
 memory_limit = 512M
@@ -27,7 +27,9 @@ date.timezone = Africa/Lusaka
 ```
 
 Apply equivalent settings to `/etc/php/8.3/cli/php.ini`, then restart PHP-FPM:
-
+```bash
+sudo nano /etc/php/8.3/cli/php.ini
+```
 ```bash
 sudo systemctl restart php8.3-fpm
 ```

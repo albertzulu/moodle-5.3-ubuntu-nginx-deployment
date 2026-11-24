@@ -16,7 +16,7 @@ sudo systemctl enable --now php8.3-fpm
 Edit `/etc/php/8.3/fpm/php.ini` and apply values suitable for your workload:
 
 sudo nano /etc/php/8.3/fpm/php.ini
-
+```
 memory_limit = 512M
 upload_max_filesize = 256M
 post_max_size = 256M

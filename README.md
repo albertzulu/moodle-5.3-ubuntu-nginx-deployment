@@ -1,19 +1,13 @@
 # Moodle 5.3 on Ubuntu 24.04 with Nginx
 
-This repository contains an installation guide for deploying Moodle 5.3.1+ on Ubuntu Server 24.04 LTS with Nginx, PHP 8.3-FPM, and PostgreSQL 17.
+A step-by-step deployment guide for Moodle 5.3.1+ on Ubuntu Server 24.04 LTS using Nginx, PHP 8.3-FPM, and PostgreSQL 17.
 
-## Guide
+## Installation guide
 
-See [Moodle5.3-Ubuntu24.04-Nginx-Installation-Guide.docx](Moodle5.3-Ubuntu24.04-Nginx-Installation-Guide.docx) for the full, step-by-step installation procedure.
-
-The guide covers:
-
-- Ubuntu package preparation and required PHP extensions
-- PostgreSQL installation and Moodle database setup
-- Moodle source deployment and protected `moodledata`
-- Nginx routing through Moodle's `public` web root and `r.php`
-- HTTPS with Let's Encrypt
-- Web-based setup, cron, service checks, backups, and production hardening
+1. [Architecture and prerequisites](docs/01-architecture-and-prerequisites.md)
+2. [Install PHP and PostgreSQL](docs/02-install-php-and-postgresql.md)
+3. [Deploy Moodle and configure Nginx](docs/03-deploy-moodle-and-nginx.md)
+4. [Finish setup and operate the server](docs/04-setup-and-operations.md)
 
 ## Target architecture
 
@@ -28,14 +22,14 @@ The guide covers:
 | Moodle web root | `/var/www/moodle/public` |
 | Moodle data | `/var/www/moodledata` |
 
-## Before deploying
+## Important
 
-- Check Moodle's official release requirements and confirm the selected PHP and PostgreSQL versions are supported.
-- The `MOODLE_503_STABLE` branch advances as maintenance updates are published. For reproducible production deployments, record and pin a reviewed release or commit.
+- Confirm the selected Moodle release's supported PHP and database versions before deployment.
+- The `MOODLE_503_STABLE` branch advances over time. For reproducible production deployments, record and pin a reviewed release or commit.
 - Replace example domains and password placeholders. Never commit real credentials.
-- Keep `moodledata` outside the web root and make sure Nginx cannot serve it.
-- Install Composer before running Composer commands and follow the dependency procedure documented for the selected Moodle release.
-- Review the Nginx configuration against the documentation for the exact Moodle release and verify it with `sudo nginx -t` before reloading the service.
+- Keep `moodledata` outside the web root and ensure Nginx cannot serve it.
+- Install Composer before running Composer commands and follow the dependency procedure for the selected Moodle release.
+- Review Nginx configuration against the selected Moodle release's documentation. Run `sudo nginx -t` before reloading Nginx.
 - Back up the database, `moodledata`, and configuration, and test restores before upgrades.
 
 ## Official references

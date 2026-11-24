@@ -13,7 +13,9 @@ cd /var/www/moodle
 ```
 
 Install Composer before running the following command. Follow the dependency installation procedure documented for the exact Moodle release:
-
+```bash
+sudo apt install composer
+```
 ```bash
 sudo composer install --no-dev --classmap-authoritative
 ```

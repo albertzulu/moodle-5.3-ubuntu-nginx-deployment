@@ -42,6 +42,9 @@ sudo chmod 770 /var/www/moodledata
 
 Create `/etc/nginx/sites-available/moodle`. Replace `lms.example.com` with the domain name used for the site. This configuration uses Moodle's `public` web root and routing entry point; verify it against the documentation for the Moodle release being deployed.
 
+```bash
+sudo nano /etc/nginx/sites-available/moodle
+```
 ```nginx
 server {
     listen 80;
